@@ -8,12 +8,13 @@ Simple HTTP Library using Fetch API
 
 class EasyHTTP {
    // make HTTP 'GET' request
-   // synchronous approach without promises
    get(url) {
-      fetch(url)
-         // this is mapped to the json using an arrow function
+      // wrap the fetch in a promise
+      return new Promise((resolve, reject) => {
+         fetch(url)
          .then(res => res.json()) 
-         .then(data => console.log(data))
-         .catch(err => console.log(err));
+         .then(data => resolve(data))
+         .catch(err => reject(err));
+      });
    }
 }
