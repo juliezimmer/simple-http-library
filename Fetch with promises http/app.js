@@ -12,7 +12,7 @@ const data = {
    email: 'johnnyd@me.com'
 }
 
-// Create post - POST request
+// Create user - POST request
 http.post('https://jsonplaceholder.typicode.com/users', data)
    .then(data => console.log(data))
    .catch(err => console.log(err));
@@ -26,7 +26,7 @@ http.post('https://jsonplaceholder.typicode.com/users', data)
       __proto__:Object
 */
 
-// update post - PUT Request
+// update user - PUT Request
 // requires an id in the url
 http.put('https://jsonplaceholder.typicode.com/users/2', data)
    .then(data => console.log(data))
@@ -40,5 +40,12 @@ http.put('https://jsonplaceholder.typicode.com/users/2', data)
       username:"johnnyD"
       __proto__:Object
 */
+
+// DELETE request
+http.delete('https://jsonplaceholder.typicode.com/users/2')
+   .then(data => console.log(data))
+   .catch(err => console.log(err));
+
+// logged to the console: resource has been deleted
 
 
