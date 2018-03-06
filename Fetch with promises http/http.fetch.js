@@ -17,4 +17,45 @@ class EasyHTTP {
          .catch(err => reject(err));
       });
    }
+   
+   // make HTTP 'POST' request
+   post(url, data) {
+      // wrap the fetch in a promise
+      return new Promise((resolve, reject) => {
+         // the post request requires the addition of an object with some methods in the fetch parens
+         fetch(url, {
+            method: 'POST',
+            headers: {
+               'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+         })
+         .then(res => res.json()) 
+         .then(data => resolve(data))
+         .catch(err => reject(err));
+      });
+   }
+
+   // Make an HTTP PUT Request
+   put(url, data) {
+      // wrap the fetch in a promise
+      return new Promise((resolve, reject) => {
+         // the post request requires the addition of an object with some methods in the fetch parens
+         fetch(url, {
+            method: 'PUT',
+            headers: {
+               'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+         })
+         .then(res => res.json()) 
+         .then(data => resolve(data))
+         .catch(err => reject(err));
+      });
+   }
+
+   // Make a DELETE Request
+   
+
+
 }
